@@ -1,0 +1,1174 @@
+{
+	"info": {
+		"_postman_id": "82264ed6-9505-44b2-80a3-3e286b05fffb",
+		"name": "Client Credential Flow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31158938"
+	},
+	"item": [
+		{
+			"name": "Clients",
+			"item": [
+				{
+					"name": "Create OAuth 2.0 Client",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"client_name\": \"your-client-name\",\n  \"client_secret\": \"your-client-secret\",\n  \"grant_types\": [\"client_credentials\"],\n  \"scope\": \"read\",\n  \"token_endpoint_auth_method\": \"client_secret_post\"\n}\n",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{adminUrl}}/admin/clients",
+							"host": [
+								"{{adminUrl}}"
+							],
+							"path": [
+								"admin",
+								"clients"
+							]
+						},
+						"description": "Create a new OAuth 2.0 client. If you pass `client_secret` the secret is used, otherwise a random secret\nis generated. The secret is echoed in the response. It is not possible to retrieve it later on."
+					},
+					"response": [
+						{
+							"name": "oAuth2Client",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"access_token_strategy\": \"<string>\",\n  \"allowed_cors_origins\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"audience\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"authorization_code_grant_access_token_lifespan\": \"913m008955334ns69916h731us3000483h489069452s73164117372ms07735690ms9338264s\",\n  \"authorization_code_grant_id_token_lifespan\": \"82856649991ms87s80h0248h\",\n  \"authorization_code_grant_refresh_token_lifespan\": \"21m0364192us834304h\",\n  \"backchannel_logout_session_required\": \"<boolean>\",\n  \"backchannel_logout_uri\": \"<string>\",\n  \"client_credentials_grant_access_token_lifespan\": \"9m69068s637016493h45749021212h81ms56385943ms\",\n  \"client_id\": \"<string>\",\n  \"client_name\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"client_secret_expires_at\": \"<long>\",\n  \"client_uri\": \"<string>\",\n  \"contacts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"frontchannel_logout_session_required\": \"<boolean>\",\n  \"frontchannel_logout_uri\": \"<string>\",\n  \"grant_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"implicit_grant_access_token_lifespan\": \"7258805558m781878us\",\n  \"implicit_grant_id_token_lifespan\": \"4us524099s1598387h98526310s10458s787301s97631ms118054ns25066255m5740s\",\n  \"jwks\": {\n    \"description\": \"OAuth 2.0 Client JSON Web Key Set\\n\\nClient's JSON Web Key Set [JWK] document, passed by value. The semantics of the jwks parameter are the same as\\nthe jwks_uri parameter, other than that the JWK Set is passed by value, rather than by reference. This parameter\\nis intended only to be used by Clients that, for some reason, are unable to use the jwks_uri parameter, for\\ninstance, by native applications that might not have a location to host the contents of the JWK Set. If a Client\\ncan use jwks_uri, it MUST NOT use jwks. One significant downside of jwks is that it does not enable key rotation\\n(which jwks_uri does, as described in Section 10 of OpenID Connect Core 1.0 [OpenID.Core]). The jwks_uri and jwks\\nparameters MUST NOT be used together.\"\n  },\n  \"jwks_uri\": \"<string>\",\n  \"jwt_bearer_grant_access_token_lifespan\": \"429686311s63390408876m467820m94433ms\",\n  \"logo_uri\": \"<string>\",\n  \"metadata\": {\n    \"title\": \"JSONRawMessage represents a json.RawMessage that works well with JSON, SQL, and Swagger.\"\n  },\n  \"owner\": \"<string>\",\n  \"policy_uri\": \"<string>\",\n  \"post_logout_redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"refresh_token_grant_access_token_lifespan\": \"237s81328110h89528ns46000432us84005893609m93057153271h842730us\",\n  \"refresh_token_grant_id_token_lifespan\": \"710572s00571810723s\",\n  \"refresh_token_grant_refresh_token_lifespan\": \"0933m6s8722us5us68693527ms5521720756m22619s7005ns\",\n  \"registration_access_token\": \"<string>\",\n  \"registration_client_uri\": \"<string>\",\n  \"request_object_signing_alg\": \"<string>\",\n  \"request_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"response_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scope\": \"<string>\",\n  \"sector_identifier_uri\": \"<string>\",\n  \"skip_consent\": \"<boolean>\",\n  \"subject_type\": \"<string>\",\n  \"token_endpoint_auth_method\": \"client_secret_basic\",\n  \"token_endpoint_auth_signing_alg\": \"<string>\",\n  \"tos_uri\": \"<string>\",\n  \"updated_at\": \"<dateTime>\",\n  \"userinfo_signed_response_alg\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/clients",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"clients"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"access_token_strategy\": \"<string>\",\n  \"allowed_cors_origins\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"audience\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"authorization_code_grant_access_token_lifespan\": \"913m008955334ns69916h731us3000483h489069452s73164117372ms07735690ms9338264s\",\n  \"authorization_code_grant_id_token_lifespan\": \"82856649991ms87s80h0248h\",\n  \"authorization_code_grant_refresh_token_lifespan\": \"21m0364192us834304h\",\n  \"backchannel_logout_session_required\": \"<boolean>\",\n  \"backchannel_logout_uri\": \"<string>\",\n  \"client_credentials_grant_access_token_lifespan\": \"9m69068s637016493h45749021212h81ms56385943ms\",\n  \"client_id\": \"<string>\",\n  \"client_name\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"client_secret_expires_at\": \"<long>\",\n  \"client_uri\": \"<string>\",\n  \"contacts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"frontchannel_logout_session_required\": \"<boolean>\",\n  \"frontchannel_logout_uri\": \"<string>\",\n  \"grant_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"implicit_grant_access_token_lifespan\": \"7258805558m781878us\",\n  \"implicit_grant_id_token_lifespan\": \"4us524099s1598387h98526310s10458s787301s97631ms118054ns25066255m5740s\",\n  \"jwks\": {\n    \"description\": \"OAuth 2.0 Client JSON Web Key Set\\n\\nClient's JSON Web Key Set [JWK] document, passed by value. The semantics of the jwks parameter are the same as\\nthe jwks_uri parameter, other than that the JWK Set is passed by value, rather than by reference. This parameter\\nis intended only to be used by Clients that, for some reason, are unable to use the jwks_uri parameter, for\\ninstance, by native applications that might not have a location to host the contents of the JWK Set. If a Client\\ncan use jwks_uri, it MUST NOT use jwks. One significant downside of jwks is that it does not enable key rotation\\n(which jwks_uri does, as described in Section 10 of OpenID Connect Core 1.0 [OpenID.Core]). The jwks_uri and jwks\\nparameters MUST NOT be used together.\"\n  },\n  \"jwks_uri\": \"<string>\",\n  \"jwt_bearer_grant_access_token_lifespan\": \"429686311s63390408876m467820m94433ms\",\n  \"logo_uri\": \"<string>\",\n  \"metadata\": {\n    \"title\": \"JSONRawMessage represents a json.RawMessage that works well with JSON, SQL, and Swagger.\"\n  },\n  \"owner\": \"<string>\",\n  \"policy_uri\": \"<string>\",\n  \"post_logout_redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"refresh_token_grant_access_token_lifespan\": \"237s81328110h89528ns46000432us84005893609m93057153271h842730us\",\n  \"refresh_token_grant_id_token_lifespan\": \"710572s00571810723s\",\n  \"refresh_token_grant_refresh_token_lifespan\": \"0933m6s8722us5us68693527ms5521720756m22619s7005ns\",\n  \"registration_access_token\": \"<string>\",\n  \"registration_client_uri\": \"<string>\",\n  \"request_object_signing_alg\": \"<string>\",\n  \"request_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"response_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scope\": \"<string>\",\n  \"sector_identifier_uri\": \"<string>\",\n  \"skip_consent\": \"<boolean>\",\n  \"subject_type\": \"<string>\",\n  \"token_endpoint_auth_method\": \"client_secret_basic\",\n  \"token_endpoint_auth_signing_alg\": \"<string>\",\n  \"tos_uri\": \"<string>\",\n  \"updated_at\": \"<dateTime>\",\n  \"userinfo_signed_response_alg\": \"<string>\"\n}"
+						},
+						{
+							"name": "Bad Request Error Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"access_token_strategy\": \"<string>\",\n  \"allowed_cors_origins\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"audience\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"authorization_code_grant_access_token_lifespan\": \"913m008955334ns69916h731us3000483h489069452s73164117372ms07735690ms9338264s\",\n  \"authorization_code_grant_id_token_lifespan\": \"82856649991ms87s80h0248h\",\n  \"authorization_code_grant_refresh_token_lifespan\": \"21m0364192us834304h\",\n  \"backchannel_logout_session_required\": \"<boolean>\",\n  \"backchannel_logout_uri\": \"<string>\",\n  \"client_credentials_grant_access_token_lifespan\": \"9m69068s637016493h45749021212h81ms56385943ms\",\n  \"client_id\": \"<string>\",\n  \"client_name\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"client_secret_expires_at\": \"<long>\",\n  \"client_uri\": \"<string>\",\n  \"contacts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"frontchannel_logout_session_required\": \"<boolean>\",\n  \"frontchannel_logout_uri\": \"<string>\",\n  \"grant_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"implicit_grant_access_token_lifespan\": \"7258805558m781878us\",\n  \"implicit_grant_id_token_lifespan\": \"4us524099s1598387h98526310s10458s787301s97631ms118054ns25066255m5740s\",\n  \"jwks\": {\n    \"description\": \"OAuth 2.0 Client JSON Web Key Set\\n\\nClient's JSON Web Key Set [JWK] document, passed by value. The semantics of the jwks parameter are the same as\\nthe jwks_uri parameter, other than that the JWK Set is passed by value, rather than by reference. This parameter\\nis intended only to be used by Clients that, for some reason, are unable to use the jwks_uri parameter, for\\ninstance, by native applications that might not have a location to host the contents of the JWK Set. If a Client\\ncan use jwks_uri, it MUST NOT use jwks. One significant downside of jwks is that it does not enable key rotation\\n(which jwks_uri does, as described in Section 10 of OpenID Connect Core 1.0 [OpenID.Core]). The jwks_uri and jwks\\nparameters MUST NOT be used together.\"\n  },\n  \"jwks_uri\": \"<string>\",\n  \"jwt_bearer_grant_access_token_lifespan\": \"429686311s63390408876m467820m94433ms\",\n  \"logo_uri\": \"<string>\",\n  \"metadata\": {\n    \"title\": \"JSONRawMessage represents a json.RawMessage that works well with JSON, SQL, and Swagger.\"\n  },\n  \"owner\": \"<string>\",\n  \"policy_uri\": \"<string>\",\n  \"post_logout_redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"refresh_token_grant_access_token_lifespan\": \"237s81328110h89528ns46000432us84005893609m93057153271h842730us\",\n  \"refresh_token_grant_id_token_lifespan\": \"710572s00571810723s\",\n  \"refresh_token_grant_refresh_token_lifespan\": \"0933m6s8722us5us68693527ms5521720756m22619s7005ns\",\n  \"registration_access_token\": \"<string>\",\n  \"registration_client_uri\": \"<string>\",\n  \"request_object_signing_alg\": \"<string>\",\n  \"request_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"response_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scope\": \"<string>\",\n  \"sector_identifier_uri\": \"<string>\",\n  \"skip_consent\": \"<boolean>\",\n  \"subject_type\": \"<string>\",\n  \"token_endpoint_auth_method\": \"client_secret_basic\",\n  \"token_endpoint_auth_signing_alg\": \"<string>\",\n  \"tos_uri\": \"<string>\",\n  \"updated_at\": \"<dateTime>\",\n  \"userinfo_signed_response_alg\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/clients",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"clients"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"error\": \"<string>\",\n  \"error_debug\": \"<string>\",\n  \"error_description\": \"<string>\",\n  \"error_hint\": \"<string>\",\n  \"status_code\": \"<long>\"\n}"
+						},
+						{
+							"name": "Default Error Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"access_token_strategy\": \"<string>\",\n  \"allowed_cors_origins\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"audience\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"authorization_code_grant_access_token_lifespan\": \"913m008955334ns69916h731us3000483h489069452s73164117372ms07735690ms9338264s\",\n  \"authorization_code_grant_id_token_lifespan\": \"82856649991ms87s80h0248h\",\n  \"authorization_code_grant_refresh_token_lifespan\": \"21m0364192us834304h\",\n  \"backchannel_logout_session_required\": \"<boolean>\",\n  \"backchannel_logout_uri\": \"<string>\",\n  \"client_credentials_grant_access_token_lifespan\": \"9m69068s637016493h45749021212h81ms56385943ms\",\n  \"client_id\": \"<string>\",\n  \"client_name\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"client_secret_expires_at\": \"<long>\",\n  \"client_uri\": \"<string>\",\n  \"contacts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"frontchannel_logout_session_required\": \"<boolean>\",\n  \"frontchannel_logout_uri\": \"<string>\",\n  \"grant_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"implicit_grant_access_token_lifespan\": \"7258805558m781878us\",\n  \"implicit_grant_id_token_lifespan\": \"4us524099s1598387h98526310s10458s787301s97631ms118054ns25066255m5740s\",\n  \"jwks\": {\n    \"description\": \"OAuth 2.0 Client JSON Web Key Set\\n\\nClient's JSON Web Key Set [JWK] document, passed by value. The semantics of the jwks parameter are the same as\\nthe jwks_uri parameter, other than that the JWK Set is passed by value, rather than by reference. This parameter\\nis intended only to be used by Clients that, for some reason, are unable to use the jwks_uri parameter, for\\ninstance, by native applications that might not have a location to host the contents of the JWK Set. If a Client\\ncan use jwks_uri, it MUST NOT use jwks. One significant downside of jwks is that it does not enable key rotation\\n(which jwks_uri does, as described in Section 10 of OpenID Connect Core 1.0 [OpenID.Core]). The jwks_uri and jwks\\nparameters MUST NOT be used together.\"\n  },\n  \"jwks_uri\": \"<string>\",\n  \"jwt_bearer_grant_access_token_lifespan\": \"429686311s63390408876m467820m94433ms\",\n  \"logo_uri\": \"<string>\",\n  \"metadata\": {\n    \"title\": \"JSONRawMessage represents a json.RawMessage that works well with JSON, SQL, and Swagger.\"\n  },\n  \"owner\": \"<string>\",\n  \"policy_uri\": \"<string>\",\n  \"post_logout_redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"refresh_token_grant_access_token_lifespan\": \"237s81328110h89528ns46000432us84005893609m93057153271h842730us\",\n  \"refresh_token_grant_id_token_lifespan\": \"710572s00571810723s\",\n  \"refresh_token_grant_refresh_token_lifespan\": \"0933m6s8722us5us68693527ms5521720756m22619s7005ns\",\n  \"registration_access_token\": \"<string>\",\n  \"registration_client_uri\": \"<string>\",\n  \"request_object_signing_alg\": \"<string>\",\n  \"request_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"response_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scope\": \"<string>\",\n  \"sector_identifier_uri\": \"<string>\",\n  \"skip_consent\": \"<boolean>\",\n  \"subject_type\": \"<string>\",\n  \"token_endpoint_auth_method\": \"client_secret_basic\",\n  \"token_endpoint_auth_signing_alg\": \"<string>\",\n  \"tos_uri\": \"<string>\",\n  \"updated_at\": \"<dateTime>\",\n  \"userinfo_signed_response_alg\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/clients",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"clients"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"error\": \"<string>\",\n  \"error_debug\": \"<string>\",\n  \"error_description\": \"<string>\",\n  \"error_hint\": \"<string>\",\n  \"status_code\": \"<long>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "List OAuth 2.0 Clients",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{adminUrl}}/admin/clients",
+							"host": [
+								"{{adminUrl}}"
+							],
+							"path": [
+								"admin",
+								"clients"
+							],
+							"query": [
+								{
+									"key": "page_size",
+									"value": "250",
+									"description": "Items per Page\n\nThis is the number of items per page to return.\nFor details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination).",
+									"disabled": true
+								},
+								{
+									"key": "page_token",
+									"value": "1",
+									"description": "Next Page Token\n\nThe next page token.\nFor details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination).",
+									"disabled": true
+								},
+								{
+									"key": "client_name",
+									"value": "<string>",
+									"description": "The name of the clients to filter by.",
+									"disabled": true
+								},
+								{
+									"key": "owner",
+									"value": "<string>",
+									"description": "The owner of the clients to filter by.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "This endpoint lists all clients in the database, and never returns client secrets.\nAs a default it lists the first 100 clients."
+					},
+					"response": [
+						{
+							"name": "Paginated OAuth2 Client List Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/admin/clients?page_size=250&page_token=1&client_name=<string>&owner=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"clients"
+									],
+									"query": [
+										{
+											"key": "page_size",
+											"value": "250",
+											"description": "Items per Page\n\nThis is the number of items per page to return.\nFor details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination)."
+										},
+										{
+											"key": "page_token",
+											"value": "1",
+											"description": "Next Page Token\n\nThe next page token.\nFor details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination)."
+										},
+										{
+											"key": "client_name",
+											"value": "<string>",
+											"description": "The name of the clients to filter by."
+										},
+										{
+											"key": "owner",
+											"value": "<string>",
+											"description": "The owner of the clients to filter by."
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"access_token_strategy\": \"<string>\",\n    \"allowed_cors_origins\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"audience\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"authorization_code_grant_access_token_lifespan\": \"\",\n    \"authorization_code_grant_id_token_lifespan\": \"182090ms19529234us\",\n    \"authorization_code_grant_refresh_token_lifespan\": \"40028973846h8121ns644421s494330us56529750819ms5528us666us87490474928m\",\n    \"backchannel_logout_session_required\": \"<boolean>\",\n    \"backchannel_logout_uri\": \"<string>\",\n    \"client_credentials_grant_access_token_lifespan\": \"0044m40094732m38s928ms10667059134s463h\",\n    \"client_id\": \"<string>\",\n    \"client_name\": \"<string>\",\n    \"client_secret\": \"<string>\",\n    \"client_secret_expires_at\": \"<long>\",\n    \"client_uri\": \"<string>\",\n    \"contacts\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"created_at\": \"<dateTime>\",\n    \"frontchannel_logout_session_required\": \"<boolean>\",\n    \"frontchannel_logout_uri\": \"<string>\",\n    \"grant_types\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"implicit_grant_access_token_lifespan\": \"3894630084us5064160ns93371485420s11890582563h73587ms4288259h7818951745ms833070m3h\",\n    \"implicit_grant_id_token_lifespan\": \"72ns704m13959792707s64015172650h5us21909765ns285us\",\n    \"jwks\": {\n      \"description\": \"OAuth 2.0 Client JSON Web Key Set\\n\\nClient's JSON Web Key Set [JWK] document, passed by value. The semantics of the jwks parameter are the same as\\nthe jwks_uri parameter, other than that the JWK Set is passed by value, rather than by reference. This parameter\\nis intended only to be used by Clients that, for some reason, are unable to use the jwks_uri parameter, for\\ninstance, by native applications that might not have a location to host the contents of the JWK Set. If a Client\\ncan use jwks_uri, it MUST NOT use jwks. One significant downside of jwks is that it does not enable key rotation\\n(which jwks_uri does, as described in Section 10 of OpenID Connect Core 1.0 [OpenID.Core]). The jwks_uri and jwks\\nparameters MUST NOT be used together.\"\n    },\n    \"jwks_uri\": \"<string>\",\n    \"jwt_bearer_grant_access_token_lifespan\": \"2991148798ns833766883us7195887247m3657s\",\n    \"logo_uri\": \"<string>\",\n    \"metadata\": {\n      \"title\": \"JSONRawMessage represents a json.RawMessage that works well with JSON, SQL, and Swagger.\"\n    },\n    \"owner\": \"<string>\",\n    \"policy_uri\": \"<string>\",\n    \"post_logout_redirect_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"redirect_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"refresh_token_grant_access_token_lifespan\": \"338930458us5554780225m\",\n    \"refresh_token_grant_id_token_lifespan\": \"3923940us9530134114m01us0840h\",\n    \"refresh_token_grant_refresh_token_lifespan\": \"6350ms2ns\",\n    \"registration_access_token\": \"<string>\",\n    \"registration_client_uri\": \"<string>\",\n    \"request_object_signing_alg\": \"<string>\",\n    \"request_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"response_types\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"scope\": \"<string>\",\n    \"sector_identifier_uri\": \"<string>\",\n    \"skip_consent\": \"<boolean>\",\n    \"subject_type\": \"<string>\",\n    \"token_endpoint_auth_method\": \"client_secret_basic\",\n    \"token_endpoint_auth_signing_alg\": \"<string>\",\n    \"tos_uri\": \"<string>\",\n    \"updated_at\": \"<dateTime>\",\n    \"userinfo_signed_response_alg\": \"<string>\"\n  },\n  {\n    \"access_token_strategy\": \"<string>\",\n    \"allowed_cors_origins\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"audience\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"authorization_code_grant_access_token_lifespan\": \"635609ms0us3991287344h\",\n    \"authorization_code_grant_id_token_lifespan\": \"25968880357ns18ns2ns006ms8653485m84332793811h1361h42202497133s3941763s\",\n    \"authorization_code_grant_refresh_token_lifespan\": \"9s594us\",\n    \"backchannel_logout_session_required\": \"<boolean>\",\n    \"backchannel_logout_uri\": \"<string>\",\n    \"client_credentials_grant_access_token_lifespan\": \"276s\",\n    \"client_id\": \"<string>\",\n    \"client_name\": \"<string>\",\n    \"client_secret\": \"<string>\",\n    \"client_secret_expires_at\": \"<long>\",\n    \"client_uri\": \"<string>\",\n    \"contacts\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"created_at\": \"<dateTime>\",\n    \"frontchannel_logout_session_required\": \"<boolean>\",\n    \"frontchannel_logout_uri\": \"<string>\",\n    \"grant_types\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"implicit_grant_access_token_lifespan\": \"\",\n    \"implicit_grant_id_token_lifespan\": \"5998m75035972927m3s\",\n    \"jwks\": {\n      \"description\": \"OAuth 2.0 Client JSON Web Key Set\\n\\nClient's JSON Web Key Set [JWK] document, passed by value. The semantics of the jwks parameter are the same as\\nthe jwks_uri parameter, other than that the JWK Set is passed by value, rather than by reference. This parameter\\nis intended only to be used by Clients that, for some reason, are unable to use the jwks_uri parameter, for\\ninstance, by native applications that might not have a location to host the contents of the JWK Set. If a Client\\ncan use jwks_uri, it MUST NOT use jwks. One significant downside of jwks is that it does not enable key rotation\\n(which jwks_uri does, as described in Section 10 of OpenID Connect Core 1.0 [OpenID.Core]). The jwks_uri and jwks\\nparameters MUST NOT be used together.\"\n    },\n    \"jwks_uri\": \"<string>\",\n    \"jwt_bearer_grant_access_token_lifespan\": \"9073us59748s7s977568m055673312h0282067168ms130450390ms5442915835s\",\n    \"logo_uri\": \"<string>\",\n    \"metadata\": {\n      \"title\": \"JSONRawMessage represents a json.RawMessage that works well with JSON, SQL, and Swagger.\"\n    },\n    \"owner\": \"<string>\",\n    \"policy_uri\": \"<string>\",\n    \"post_logout_redirect_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"redirect_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"refresh_token_grant_access_token_lifespan\": \"\",\n    \"refresh_token_grant_id_token_lifespan\": \"5s23877us119300ms19089041m768us734s4999027424s9214ms829095769us799m\",\n    \"refresh_token_grant_refresh_token_lifespan\": \"4ms12035h53m5368us\",\n    \"registration_access_token\": \"<string>\",\n    \"registration_client_uri\": \"<string>\",\n    \"request_object_signing_alg\": \"<string>\",\n    \"request_uris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"response_types\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"scope\": \"<string>\",\n    \"sector_identifier_uri\": \"<string>\",\n    \"skip_consent\": \"<boolean>\",\n    \"subject_type\": \"<string>\",\n    \"token_endpoint_auth_method\": \"client_secret_basic\",\n    \"token_endpoint_auth_signing_alg\": \"<string>\",\n    \"tos_uri\": \"<string>\",\n    \"updated_at\": \"<dateTime>\",\n    \"userinfo_signed_response_alg\": \"<string>\"\n  }\n]"
+						},
+						{
+							"name": "Default Error Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/admin/clients?page_size=250&page_token=1&client_name=<string>&owner=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"clients"
+									],
+									"query": [
+										{
+											"key": "page_size",
+											"value": "250",
+											"description": "Items per Page\n\nThis is the number of items per page to return.\nFor details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination)."
+										},
+										{
+											"key": "page_token",
+											"value": "1",
+											"description": "Next Page Token\n\nThe next page token.\nFor details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination)."
+										},
+										{
+											"key": "client_name",
+											"value": "<string>",
+											"description": "The name of the clients to filter by."
+										},
+										{
+											"key": "owner",
+											"value": "<string>",
+											"description": "The owner of the clients to filter by."
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"error\": \"<string>\",\n  \"error_debug\": \"<string>\",\n  \"error_description\": \"<string>\",\n  \"error_hint\": \"<string>\",\n  \"status_code\": \"<long>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete OAuth 2.0 Client by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{adminUrl}}/admin/clients/{{clientId}}",
+							"host": [
+								"{{adminUrl}}"
+							],
+							"path": [
+								"admin",
+								"clients",
+								"{{clientId}}"
+							]
+						},
+						"description": "Delete an existing OAuth 2.0 Client by its ID.\n\nOAuth 2.0 clients are used to perform OAuth 2.0 and OpenID Connect flows. Usually, OAuth 2.0 clients are\ngenerated for applications which want to consume your OAuth 2.0 or OpenID Connect capabilities.\n\nMake sure that this endpoint is well protected and only callable by first-party components."
+					},
+					"response": [
+						{
+							"name": "Empty responses are sent when, for example, resources are deleted. The HTTP status code for empty responses is\ntypically 201.",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/admin/clients/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"clients",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "genericError",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/admin/clients/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"clients",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\",\n  \"debug\": \"<string>\",\n  \"details\": {\n    \"description\": \"Further error details\"\n  },\n  \"id\": \"<string>\",\n  \"reason\": \"<string>\",\n  \"request\": \"<string>\",\n  \"status\": \"<string>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get an OAuth 2.0 Client by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{adminUrl}}/admin/clients/{{clientId}}",
+							"host": [
+								"{{adminUrl}}"
+							],
+							"path": [
+								"admin",
+								"clients",
+								"{{clientId}}"
+							]
+						},
+						"description": "Get an OAuth 2.0 client by its ID. This endpoint never returns the client secret.\n\nOAuth 2.0 clients are used to perform OAuth 2.0 and OpenID Connect flows. Usually, OAuth 2.0 clients are\ngenerated for applications which want to consume your OAuth 2.0 or OpenID Connect capabilities."
+					},
+					"response": [
+						{
+							"name": "oAuth2Client",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/admin/clients/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"clients",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"access_token_strategy\": \"<string>\",\n  \"allowed_cors_origins\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"audience\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"authorization_code_grant_access_token_lifespan\": \"913m008955334ns69916h731us3000483h489069452s73164117372ms07735690ms9338264s\",\n  \"authorization_code_grant_id_token_lifespan\": \"82856649991ms87s80h0248h\",\n  \"authorization_code_grant_refresh_token_lifespan\": \"21m0364192us834304h\",\n  \"backchannel_logout_session_required\": \"<boolean>\",\n  \"backchannel_logout_uri\": \"<string>\",\n  \"client_credentials_grant_access_token_lifespan\": \"9m69068s637016493h45749021212h81ms56385943ms\",\n  \"client_id\": \"<string>\",\n  \"client_name\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"client_secret_expires_at\": \"<long>\",\n  \"client_uri\": \"<string>\",\n  \"contacts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"frontchannel_logout_session_required\": \"<boolean>\",\n  \"frontchannel_logout_uri\": \"<string>\",\n  \"grant_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"implicit_grant_access_token_lifespan\": \"7258805558m781878us\",\n  \"implicit_grant_id_token_lifespan\": \"4us524099s1598387h98526310s10458s787301s97631ms118054ns25066255m5740s\",\n  \"jwks\": {\n    \"description\": \"OAuth 2.0 Client JSON Web Key Set\\n\\nClient's JSON Web Key Set [JWK] document, passed by value. The semantics of the jwks parameter are the same as\\nthe jwks_uri parameter, other than that the JWK Set is passed by value, rather than by reference. This parameter\\nis intended only to be used by Clients that, for some reason, are unable to use the jwks_uri parameter, for\\ninstance, by native applications that might not have a location to host the contents of the JWK Set. If a Client\\ncan use jwks_uri, it MUST NOT use jwks. One significant downside of jwks is that it does not enable key rotation\\n(which jwks_uri does, as described in Section 10 of OpenID Connect Core 1.0 [OpenID.Core]). The jwks_uri and jwks\\nparameters MUST NOT be used together.\"\n  },\n  \"jwks_uri\": \"<string>\",\n  \"jwt_bearer_grant_access_token_lifespan\": \"429686311s63390408876m467820m94433ms\",\n  \"logo_uri\": \"<string>\",\n  \"metadata\": {\n    \"title\": \"JSONRawMessage represents a json.RawMessage that works well with JSON, SQL, and Swagger.\"\n  },\n  \"owner\": \"<string>\",\n  \"policy_uri\": \"<string>\",\n  \"post_logout_redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"refresh_token_grant_access_token_lifespan\": \"237s81328110h89528ns46000432us84005893609m93057153271h842730us\",\n  \"refresh_token_grant_id_token_lifespan\": \"710572s00571810723s\",\n  \"refresh_token_grant_refresh_token_lifespan\": \"0933m6s8722us5us68693527ms5521720756m22619s7005ns\",\n  \"registration_access_token\": \"<string>\",\n  \"registration_client_uri\": \"<string>\",\n  \"request_object_signing_alg\": \"<string>\",\n  \"request_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"response_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scope\": \"<string>\",\n  \"sector_identifier_uri\": \"<string>\",\n  \"skip_consent\": \"<boolean>\",\n  \"subject_type\": \"<string>\",\n  \"token_endpoint_auth_method\": \"client_secret_basic\",\n  \"token_endpoint_auth_signing_alg\": \"<string>\",\n  \"tos_uri\": \"<string>\",\n  \"updated_at\": \"<dateTime>\",\n  \"userinfo_signed_response_alg\": \"<string>\"\n}"
+						},
+						{
+							"name": "Default Error Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/admin/clients/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"clients",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"error\": \"<string>\",\n  \"error_debug\": \"<string>\",\n  \"error_description\": \"<string>\",\n  \"error_hint\": \"<string>\",\n  \"status_code\": \"<long>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Patch OAuth 2.0 Client by ID",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"op\": \"replace\",\n        \"path\": \"/scope\",\n        \"from\": \"user\",\n        \"value\": \"read\"\n    }\n]",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{adminUrl}}/admin/clients/{{clientId}}",
+							"host": [
+								"{{adminUrl}}"
+							],
+							"path": [
+								"admin",
+								"clients",
+								"{{clientId}}"
+							]
+						},
+						"description": "Patch an existing OAuth 2.0 Client using JSON Patch. If you pass `client_secret`\nthe secret will be updated and returned via the API. This is the\nonly time you will be able to retrieve the client secret, so write it down and keep it safe.\n\nOAuth 2.0 clients are used to perform OAuth 2.0 and OpenID Connect flows. Usually, OAuth 2.0 clients are\ngenerated for applications which want to consume your OAuth 2.0 or OpenID Connect capabilities."
+					},
+					"response": [
+						{
+							"name": "oAuth2Client",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"from\": \"<string>\",\n    \"value\": {\n      \"description\": \"The value to be used within the operations.\\n\\nLearn more [about JSON Pointers](https://datatracker.ietf.org/doc/html/rfc6901#section-5).\",\n      \"example\": \"foobar\"\n    }\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"from\": \"<string>\",\n    \"value\": {\n      \"description\": \"The value to be used within the operations.\\n\\nLearn more [about JSON Pointers](https://datatracker.ietf.org/doc/html/rfc6901#section-5).\",\n      \"example\": \"foobar\"\n    }\n  }\n]",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/clients/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"clients",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"access_token_strategy\": \"<string>\",\n  \"allowed_cors_origins\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"audience\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"authorization_code_grant_access_token_lifespan\": \"913m008955334ns69916h731us3000483h489069452s73164117372ms07735690ms9338264s\",\n  \"authorization_code_grant_id_token_lifespan\": \"82856649991ms87s80h0248h\",\n  \"authorization_code_grant_refresh_token_lifespan\": \"21m0364192us834304h\",\n  \"backchannel_logout_session_required\": \"<boolean>\",\n  \"backchannel_logout_uri\": \"<string>\",\n  \"client_credentials_grant_access_token_lifespan\": \"9m69068s637016493h45749021212h81ms56385943ms\",\n  \"client_id\": \"<string>\",\n  \"client_name\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"client_secret_expires_at\": \"<long>\",\n  \"client_uri\": \"<string>\",\n  \"contacts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"frontchannel_logout_session_required\": \"<boolean>\",\n  \"frontchannel_logout_uri\": \"<string>\",\n  \"grant_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"implicit_grant_access_token_lifespan\": \"7258805558m781878us\",\n  \"implicit_grant_id_token_lifespan\": \"4us524099s1598387h98526310s10458s787301s97631ms118054ns25066255m5740s\",\n  \"jwks\": {\n    \"description\": \"OAuth 2.0 Client JSON Web Key Set\\n\\nClient's JSON Web Key Set [JWK] document, passed by value. The semantics of the jwks parameter are the same as\\nthe jwks_uri parameter, other than that the JWK Set is passed by value, rather than by reference. This parameter\\nis intended only to be used by Clients that, for some reason, are unable to use the jwks_uri parameter, for\\ninstance, by native applications that might not have a location to host the contents of the JWK Set. If a Client\\ncan use jwks_uri, it MUST NOT use jwks. One significant downside of jwks is that it does not enable key rotation\\n(which jwks_uri does, as described in Section 10 of OpenID Connect Core 1.0 [OpenID.Core]). The jwks_uri and jwks\\nparameters MUST NOT be used together.\"\n  },\n  \"jwks_uri\": \"<string>\",\n  \"jwt_bearer_grant_access_token_lifespan\": \"429686311s63390408876m467820m94433ms\",\n  \"logo_uri\": \"<string>\",\n  \"metadata\": {\n    \"title\": \"JSONRawMessage represents a json.RawMessage that works well with JSON, SQL, and Swagger.\"\n  },\n  \"owner\": \"<string>\",\n  \"policy_uri\": \"<string>\",\n  \"post_logout_redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"refresh_token_grant_access_token_lifespan\": \"237s81328110h89528ns46000432us84005893609m93057153271h842730us\",\n  \"refresh_token_grant_id_token_lifespan\": \"710572s00571810723s\",\n  \"refresh_token_grant_refresh_token_lifespan\": \"0933m6s8722us5us68693527ms5521720756m22619s7005ns\",\n  \"registration_access_token\": \"<string>\",\n  \"registration_client_uri\": \"<string>\",\n  \"request_object_signing_alg\": \"<string>\",\n  \"request_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"response_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scope\": \"<string>\",\n  \"sector_identifier_uri\": \"<string>\",\n  \"skip_consent\": \"<boolean>\",\n  \"subject_type\": \"<string>\",\n  \"token_endpoint_auth_method\": \"client_secret_basic\",\n  \"token_endpoint_auth_signing_alg\": \"<string>\",\n  \"tos_uri\": \"<string>\",\n  \"updated_at\": \"<dateTime>\",\n  \"userinfo_signed_response_alg\": \"<string>\"\n}"
+						},
+						{
+							"name": "Not Found Error Response",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"from\": \"<string>\",\n    \"value\": {\n      \"description\": \"The value to be used within the operations.\\n\\nLearn more [about JSON Pointers](https://datatracker.ietf.org/doc/html/rfc6901#section-5).\",\n      \"example\": \"foobar\"\n    }\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"from\": \"<string>\",\n    \"value\": {\n      \"description\": \"The value to be used within the operations.\\n\\nLearn more [about JSON Pointers](https://datatracker.ietf.org/doc/html/rfc6901#section-5).\",\n      \"example\": \"foobar\"\n    }\n  }\n]",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/clients/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"clients",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"error\": \"<string>\",\n  \"error_debug\": \"<string>\",\n  \"error_description\": \"<string>\",\n  \"error_hint\": \"<string>\",\n  \"status_code\": \"<long>\"\n}"
+						},
+						{
+							"name": "Default Error Response",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"from\": \"<string>\",\n    \"value\": {\n      \"description\": \"The value to be used within the operations.\\n\\nLearn more [about JSON Pointers](https://datatracker.ietf.org/doc/html/rfc6901#section-5).\",\n      \"example\": \"foobar\"\n    }\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"from\": \"<string>\",\n    \"value\": {\n      \"description\": \"The value to be used within the operations.\\n\\nLearn more [about JSON Pointers](https://datatracker.ietf.org/doc/html/rfc6901#section-5).\",\n      \"example\": \"foobar\"\n    }\n  }\n]",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/clients/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"clients",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"error\": \"<string>\",\n  \"error_debug\": \"<string>\",\n  \"error_description\": \"<string>\",\n  \"error_hint\": \"<string>\",\n  \"status_code\": \"<long>\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "The OAuth 2.0 Token Endpoint",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"description": "(Required) "
+						},
+						{
+							"key": "client_id",
+							"value": "{{clientId}}"
+						},
+						{
+							"key": "client_secret",
+							"value": "{{clientSecret}}"
+						},
+						{
+							"key": "scope",
+							"value": "read",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{publicUrl}}/oauth2/token",
+					"host": [
+						"{{publicUrl}}"
+					],
+					"path": [
+						"oauth2",
+						"token"
+					]
+				},
+				"description": "Use open source libraries to perform OAuth 2.0 and OpenID Connect\navailable for any programming language. You can find a list of libraries here https://oauth.net/code/\n\nThe Ory SDK is not yet able to this endpoint properly."
+			},
+			"response": [
+				{
+					"name": "oAuth2TokenExchange",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"description": "Added as a part of security scheme: basic",
+								"key": "Authorization",
+								"value": "Basic <credentials>"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "<string>",
+									"description": "(Required) "
+								},
+								{
+									"key": "client_id",
+									"value": "<string>"
+								},
+								{
+									"key": "code",
+									"value": "<string>"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "<string>"
+								},
+								{
+									"key": "refresh_token",
+									"value": "<string>"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/oauth2/token",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"access_token\": \"<string>\",\n  \"expires_in\": \"<long>\",\n  \"id_token\": \"<long>\",\n  \"refresh_token\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"token_type\": \"<string>\"\n}"
+				},
+				{
+					"name": "errorOAuth2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"description": "Added as a part of security scheme: basic",
+								"key": "Authorization",
+								"value": "Basic <credentials>"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "<string>",
+									"description": "(Required) "
+								},
+								{
+									"key": "client_id",
+									"value": "<string>"
+								},
+								{
+									"key": "code",
+									"value": "<string>"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "<string>"
+								},
+								{
+									"key": "refresh_token",
+									"value": "<string>"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/oauth2/token",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"error\": \"<string>\",\n  \"error_debug\": \"<string>\",\n  \"error_description\": \"<string>\",\n  \"error_hint\": \"<string>\",\n  \"status_code\": \"<long>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Introspect OAuth2 Access and Refresh Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"description": "(Required) The string value of the token. For access tokens, this\nis the \"access_token\" value returned from the token endpoint\ndefined in OAuth 2.0. For refresh tokens, this is the \"refresh_token\"\nvalue returned."
+						},
+						{
+							"key": "scope",
+							"value": "read",
+							"description": "An optional, space separated list of required scopes. If the access token was not granted one of the\nscopes, the result of active will be false."
+						}
+					]
+				},
+				"url": {
+					"raw": "{{adminUrl}}/admin/oauth2/introspect",
+					"host": [
+						"{{adminUrl}}"
+					],
+					"path": [
+						"admin",
+						"oauth2",
+						"introspect"
+					]
+				},
+				"description": "The introspection endpoint allows to check if a token (both refresh and access) is active or not. An active token\nis neither expired nor revoked. If a token is active, additional information on the token will be included. You can\nset additional data for a token by setting `session.access_token` during the consent flow."
+			},
+			"response": [
+				{
+					"name": "introspectedOAuth2Token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "token",
+									"value": "<string>",
+									"description": "(Required) The string value of the token. For access tokens, this\nis the \"access_token\" value returned from the token endpoint\ndefined in OAuth 2.0. For refresh tokens, this is the \"refresh_token\"\nvalue returned."
+								},
+								{
+									"key": "scope",
+									"value": "<string>",
+									"description": "An optional, space separated list of required scopes. If the access token was not granted one of the\nscopes, the result of active will be false."
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/admin/oauth2/introspect",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"admin",
+								"oauth2",
+								"introspect"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"active\": \"<boolean>\",\n  \"aud\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"client_id\": \"<string>\",\n  \"exp\": \"<long>\",\n  \"ext\": {\n    \"quisa\": {},\n    \"id2_\": {}\n  },\n  \"iat\": \"<long>\",\n  \"iss\": \"<string>\",\n  \"nbf\": \"<long>\",\n  \"obfuscated_subject\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"sub\": \"<string>\",\n  \"token_type\": \"<string>\",\n  \"token_use\": \"<string>\",\n  \"username\": \"<string>\"\n}"
+				},
+				{
+					"name": "errorOAuth2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "token",
+									"value": "<string>",
+									"description": "(Required) The string value of the token. For access tokens, this\nis the \"access_token\" value returned from the token endpoint\ndefined in OAuth 2.0. For refresh tokens, this is the \"refresh_token\"\nvalue returned."
+								},
+								{
+									"key": "scope",
+									"value": "<string>",
+									"description": "An optional, space separated list of required scopes. If the access token was not granted one of the\nscopes, the result of active will be false."
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/admin/oauth2/introspect",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"admin",
+								"oauth2",
+								"introspect"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"error\": \"<string>\",\n  \"error_debug\": \"<string>\",\n  \"error_description\": \"<string>\",\n  \"error_hint\": \"<string>\",\n  \"status_code\": \"<long>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Protected Recourse",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{resourceUrl}}/secured-resource",
+					"host": [
+						"{{resourceUrl}}"
+					],
+					"path": [
+						"secured-resource"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "adminUrl",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "publicUrl",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "resourceUrl",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "clientId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "clientSecret",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
